@@ -1,5 +1,11 @@
+<script>
+import "primevue/resources/themes/aura-light-green/theme.css";
+</script>
+
 <template>
-  <div>
-    <NuxtWelcome />
-  </div>
+  <template>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </template>
 </template>
