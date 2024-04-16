@@ -22,8 +22,11 @@ const items = ref([
     icon: "i-mdi-archive-search-outline",
     items: [
       {
-        label: "sub-1",
+        label: "TMDB test page-1",
         icon: "pi pi-bolt",
+        command: () => {
+          router.push("/tmdb/testPage");
+        },
       },
       {
         label: "sub-2",
@@ -42,10 +45,8 @@ const items = ref([
 </script>
 
 <template>
-  <div>
-    <div class="">
-      <Menubar :model="items" />
-    </div>
-    <div class="p-5"><slot /></div>
+  <div class="bg-white">
+    <Menubar :model="items" class="bg-gray-1" />
+    <div class="p-4"><slot /></div>
   </div>
 </template>
