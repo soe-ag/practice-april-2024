@@ -29,8 +29,11 @@ const items = ref([
         },
       },
       {
-        label: "sub-2",
+        label: "TMDB posters",
         icon: "pi pi-server",
+        command: () => {
+          router.push("/tmdb/testPagePoster");
+        },
       },
     ],
   },
@@ -45,8 +48,8 @@ const items = ref([
 </script>
 
 <template>
+  <Menubar :model="items" class="bg-gray-1" />
   <div class="bg-white">
-    <Menubar :model="items" class="bg-gray-1" />
     <div class="p-4"><slot /></div>
   </div>
 </template>

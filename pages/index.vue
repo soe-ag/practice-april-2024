@@ -7,7 +7,7 @@ definePageMeta({
   <div>
     <div class="flex gap-2">
       <div class="i-mdi-account-heart"></div>
-      <div>This is admin page</div>
+      <div>This is index page</div>
     </div>
     <Section></Section>
   </div>

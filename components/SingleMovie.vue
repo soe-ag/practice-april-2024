@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { MovieData } from "~/pages/tmdb/testPage.vue";
+import type { MovieData } from "~/utils/tmdbApi";
 
 type Props = {
   movie: MovieData;
