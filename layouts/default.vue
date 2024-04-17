@@ -22,7 +22,7 @@ const items = ref([
     icon: "i-mdi-archive-search-outline",
     items: [
       {
-        label: "TMDB test page-1",
+        label: "TMDB test page",
         icon: "pi pi-bolt",
         command: () => {
           router.push("/tmdb/testPage");
