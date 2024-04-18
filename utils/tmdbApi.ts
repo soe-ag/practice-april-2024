@@ -13,6 +13,7 @@ export type MovieData = {
   poster_path: string;
   release_date: string;
   vote_average: number;
+  genre_ids: number[];
 };
 
 export type ApiData = {
@@ -37,6 +38,7 @@ export const fetchUpcoming = async (pageNum: number) => {
         poster_path: movie.poster_path,
         release_date: movie.release_date,
         vote_average: movie.vote_average,
+        genre_ids: movie.genre_ids,
       }))
   );
 };
@@ -57,6 +59,7 @@ export const fetchTopRated = async (type: string, pageNum: number) => {
       poster_path: movie.poster_path,
       release_date: movie.release_date,
       vote_average: movie.vote_average,
+      genre_ids: movie.genre_ids,
     })),
   };
 };

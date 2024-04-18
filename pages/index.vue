@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { genre } from "~/types/constants";
+import type { GenreID } from "~/types/constants";
+
 const movies = ref<ApiData>();
 const pageNum = ref(1);
 const isMovie = ref("movie");
@@ -61,7 +64,17 @@ watch(
             roundToOneDecimal(movie.vote_average)
           }})
         </p>
-        <p></p>
+        <div class="flex gap-1 flex-wrap w-36">
+          <Tag
+            value="Primary"
+            rounded
+            class="text-xs h-4"
+            v-for="tag in movie.genre_ids"
+            :key="tag"
+          >
+            {{ genre[tag as GenreID] }}</Tag
+          >
+        </div>
       </div>
     </div>
   </div>
