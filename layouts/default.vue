@@ -48,8 +48,8 @@ const items = ref([
 </script>
 
 <template>
-  <Menubar :model="items" class="bg-gray-1" />
-  <div class="bg-white">
+  <div class="bg-gray-2 p-1">
+    <Menubar :model="items" class="bg-gray-1 m-2 b-1 b-gray-3" />
     <div class="p-4"><slot /></div>
   </div>
 </template>

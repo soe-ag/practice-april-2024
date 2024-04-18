@@ -1,21 +1,21 @@
 <script setup lang="ts">
 const test = ref(false);
 
-const upcomingMovies = ref<MovieData[]>([]);
+const movies = ref<MovieData[]>([]);
 
 onMounted(async () => {
-  upcomingMovies.value = await fetchData(1);
+  movies.value = await fetchUpcoming(1);
 });
 </script>
 
 <template>
   <h2 class="mx-4 text-gray-6 underline italic">Upcoming movies</h2>
-  <!-- <div>up - {{ upcomingMovies }}</div> -->
-  <!-- <div>{{ upcomingMovies.length }}</div>
-  <pre>{{ upcomingMovies }}</pre> -->
-  <div class="flex gap-2 flex-wrap">
+  <!-- <div>up - {{ movies }}</div> -->
+  <!-- <div>{{ movies.length }}</div>
+  <pre>{{ movies }}</pre> -->
+  <div class="flex gap-2 flex-wrap b-1 b-white">
     <SingleMovie
-      v-for="movie in upcomingMovies"
+      v-for="movie in movies"
       :key="movie.original_title"
       :movie="movie"
     />

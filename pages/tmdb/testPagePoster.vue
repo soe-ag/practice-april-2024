@@ -1,17 +1,14 @@
 <script setup lang="ts">
 const test = ref(false);
 
-const upcomingMovies = ref<MovieData[]>([]);
+const movies = ref<MovieData[]>([]);
 const pageNum = ref(1);
 
 onMounted(async () => {
-  upcomingMovies.value = await fetchData(pageNum.value);
+  movies.value = await fetchUpcoming(pageNum.value);
 });
 
-watch(
-  pageNum,
-  async () => (upcomingMovies.value = await fetchData(pageNum.value))
-);
+watch(pageNum, async () => (movies.value = await fetchUpcoming(pageNum.value)));
 </script>
 
 <template>
@@ -37,11 +34,7 @@ watch(
     </div>
 
     <div class="flex gap-2 flex-wrap">
-      <div
-        v-for="movie in upcomingMovies"
-        :key="movie.original_title"
-        :movie="movie"
-      >
+      <div v-for="movie in movies" :key="movie.original_title" :movie="movie">
         <NuxtImg :src="`https://image.tmdb.org/t/p/w300${movie.poster_path}`" />
       </div>
     </div>

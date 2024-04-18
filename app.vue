@@ -7,3 +7,9 @@ import "primevue/resources/themes/aura-light-green/theme.css";
     <NuxtPage />
   </NuxtLayout>
 </template>
+
+<style>
+* {
+  margin: 0;
+}
+</style>

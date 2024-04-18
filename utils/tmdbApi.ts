@@ -12,9 +12,10 @@ export type MovieData = {
   overview: string;
   poster_path: string;
   release_date: string;
+  vote_average: number;
 };
 
-export const fetchData = async (pageNum: number) => {
+export const fetchUpcoming = async (pageNum: number) => {
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=${pageNum}`,
     options
@@ -28,6 +29,22 @@ export const fetchData = async (pageNum: number) => {
         overview: movie.overview,
         poster_path: movie.poster_path,
         release_date: movie.release_date,
+        vote_average: movie.vote_average,
       }))
   );
+};
+
+export const fetchTopRated = async (type: string, pageNum: number) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/${type}/top_rated?language=en-US&page=${pageNum}`,
+    options
+  );
+  const data = await response.json();
+  return data.results.map((movie: MovieData) => ({
+    original_title: movie.original_title,
+    overview: movie.overview,
+    poster_path: movie.poster_path,
+    release_date: movie.release_date,
+    vote_average: movie.vote_average,
+  }));
 };
