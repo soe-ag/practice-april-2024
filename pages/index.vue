@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const movies = ref<MovieData[]>([]);
+const movies = ref<ApiData>();
 const pageNum = ref(1);
 const isMovie = ref("movie");
 
@@ -45,7 +45,11 @@ watch(
     </div>
 
     <div class="flex gap-2 flex-wrap text-sm">
-      <div v-for="movie in movies" :key="movie.original_title" :movie="movie">
+      <div
+        v-for="movie in movies?.results"
+        :key="movie.original_title"
+        :movie="movie"
+      >
         <div class="">
           <NuxtImg
             :src="`https://image.tmdb.org/t/p/w300${movie.poster_path}`"
@@ -60,5 +64,21 @@ watch(
         <p></p>
       </div>
     </div>
+  </div>
+  <div class="text-sm flex gap-4 justify-end mt-4">
+    <p>
+      PageNum :
+      <span class="text-violet-5 font-semibold">{{ movies?.page }}</span>
+    </p>
+    <p>
+      Total Pages :
+      <span class="text-violet-5 font-semibold">{{ movies?.total_pages }}</span>
+    </p>
+    <p>
+      Total {{ isMovie === "tv" ? "Series" : "Movies" }} :
+      <span class="text-violet-5 font-semibold">{{
+        movies?.total_results
+      }}</span>
+    </p>
   </div>
 </template>
