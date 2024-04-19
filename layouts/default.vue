@@ -35,6 +35,13 @@ const items = ref([
           router.push("/tmdb/testPagePoster");
         },
       },
+      {
+        label: "TMDB posters2",
+        icon: "pi pi-server",
+        command: () => {
+          router.push("/tmdb/testPagePoster2");
+        },
+      },
     ],
   },
   {
