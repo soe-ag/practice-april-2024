@@ -1,20 +1,20 @@
 <script setup lang="ts">
 const test = ref(false);
 
-const movies = ref<MovieData[]>([]);
-const pageNum = ref(1);
+// const movies = ref<MovieData[]>([]);
+// const pageNum = ref(1);
 
-onMounted(async () => {
-  movies.value = await fetchUpcoming(pageNum.value);
-});
+// onMounted(async () => {
+//   movies.value = await fetchUpcoming(pageNum.value);
+// });
 
-watch(pageNum, async () => (movies.value = await fetchUpcoming(pageNum.value)));
+// watch(pageNum, async () => (movies.value = await fetchUpcoming(pageNum.value)));
 </script>
 
 <template>
   <h2 class="m-4 text-gray-6 underline italic w-100">Posters</h2>
 
-  <div class="flex gap-2 flex-wrap my-4">
+  <!-- <div class="flex gap-2 flex-wrap my-4">
     <Button label="Primary" />
     <Button label="Secondary" severity="secondary" />
     <Button label="Success" severity="success" />
@@ -53,5 +53,5 @@ watch(pageNum, async () => (movies.value = await fetchUpcoming(pageNum.value)));
         <NuxtImg :src="`https://image.tmdb.org/t/p/w300${movie.poster_path}`" />
       </div>
     </div>
-  </div>
+  </div> -->
 </template>

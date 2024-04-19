@@ -42,6 +42,13 @@ const items = ref([
           router.push("/tmdb/testPagePoster2");
         },
       },
+      {
+        label: "test shepherd",
+        icon: "pi pi-server",
+        command: () => {
+          router.push("/tmdb/testShepherd");
+        },
+      },
     ],
   },
   {
