@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import introJs from "intro.js";
+import "intro.js/introjs.css";
+
 const test = ref(false);
 
 const movies = ref<MovieData[]>([]);
@@ -6,13 +9,19 @@ const pageNum = ref(1);
 
 onMounted(async () => {
   movies.value = await fetchUpcoming(pageNum.value);
+  introJs().start();
 });
 
 watch(pageNum, async () => (movies.value = await fetchUpcoming(pageNum.value)));
 </script>
 
 <template>
-  <h2 class="mx-4 text-gray-6 underline italic">Posters</h2>
+  <h2
+    class="m-4 text-gray-6 underline italic w-100"
+    data-intro="This is step one!"
+  >
+    Posters
+  </h2>
 
   <div class="flex gap-4">
     <div class="">
